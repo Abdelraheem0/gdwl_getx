@@ -7,7 +7,7 @@ import 'package:flutter/material.dart';
     secondaryVariant: Colors.blue,
     surface: Colors.white,
     background: Colors.white,
-    error: Colors.blue,
+    error: Colors.red,
     onPrimary: Colors.white,
     onSecondary: Colors.grey,
     onSurface: Colors.blue,
