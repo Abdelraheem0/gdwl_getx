@@ -168,6 +168,7 @@ class HomeController extends GetxController {
       date: taskDateController.text,
       status: 'new',
     ));
+    update();
     resetTaskControllers();
   }
 
@@ -180,6 +181,7 @@ class HomeController extends GetxController {
       date: subTaskDateController.text,
       status: 'new',
     ));
+    update();
     resetSubTaskControllers();
   }
 
@@ -187,6 +189,7 @@ class HomeController extends GetxController {
       lists.add(ListModel(
         name: listNameController.text,
       ));
+      update();
       listNameController.text = '';
   }
 

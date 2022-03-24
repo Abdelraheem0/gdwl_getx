@@ -3,6 +3,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:gdwl_app/controllers/home_controller.dart';
+import 'package:gdwl_app/shared/theme.dart';
 import '../widgets/text_field/task_details_textfield.dart';
 import 'package:get/get.dart';
 
@@ -54,29 +55,41 @@ class SubTaskDetailsScreen extends StatelessWidget {
                 border: InputBorder.none,
               ),
               controller: _controller.subTaskNameController..text = subTaskName!,
-              style: TextStyle(fontSize: 22.sp, fontWeight: FontWeight.w500),
+              style: MyTheme.getTextTheme().headline1!.copyWith(color: Colors.black),
             ),
             subTaskDetails!.isEmpty
                 ? TaskDetailsTextField(
               controller: _controller.subTaskDetailsController ,
-              hintText: 'Add details',)
+              hintText: 'Add details',
+              prefixIcon: Icons.description_outlined,
+            )
                 : TaskDetailsTextField(
               controller: _controller.subTaskDetailsController,
-              initialData: subTaskDetails,),
+              initialData: subTaskDetails,
+              prefixIcon: Icons.description_outlined,
+            ),
             subTaskDate!.isEmpty
                 ? TaskDetailsTextField(
               controller: _controller.subTaskDateController ,
-              hintText: 'Add date',)
+              hintText: 'Add date',
+              prefixIcon: Icons.date_range,
+            )
                 : TaskDetailsTextField(
               controller: _controller.subTaskDateController,
-              initialData: subTaskDate,),
+              initialData: subTaskDate,
+              prefixIcon: Icons.date_range,
+            ),
             subTaskTime!.isEmpty
                 ? TaskDetailsTextField(
               controller: _controller.subTaskTimeController ,
-              hintText: 'Add time',)
+              hintText: 'Add time',
+              prefixIcon: Icons.watch_later_rounded,
+            )
                 : TaskDetailsTextField(
               controller: _controller.subTaskTimeController,
-              initialData: subTaskTime,),
+              initialData: subTaskTime,
+              prefixIcon: Icons.watch_later_rounded,
+            ),
           ],
         ),
       ),

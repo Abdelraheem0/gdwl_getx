@@ -11,7 +11,6 @@ import 'package:get/get.dart';
 class TasksListBuilder extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
-
     HomeController _homeController = Get.find();
 
     return ListView.builder(
@@ -21,9 +20,8 @@ class TasksListBuilder extends StatelessWidget {
       itemBuilder: (context, index) => Column(
         children: [
           ListTile(
-            onTap: (){
-              getToScreen(
-                  TaskDetailsScreen(
+            onTap: () {
+              getToScreen(TaskDetailsScreen(
                 taskName: _homeController.tasks[index].name,
                 taskDetails: _homeController.tasks[index].details,
                 taskTime: _homeController.tasks[index].time,
@@ -32,69 +30,58 @@ class TasksListBuilder extends StatelessWidget {
             },
             contentPadding: EdgeInsets.zero,
             leading: IconButton(
-              onPressed: (){
-              },
+              onPressed: () {},
               icon: Icon(Icons.circle_outlined),
             ),
             title: Text(
               '${_homeController.tasks[index].name}',
             ),
-            subtitle:
-            Text('${_homeController.tasks[index].details}'),
-            trailing: _homeController.tasks[index].date
-                .toString()
-                .isEmpty &&
-                _homeController.tasks[index].time
-                    .toString()
-                    .isEmpty
+            subtitle: Text('${_homeController.tasks[index].details}'),
+            trailing: _homeController.tasks[index].date.toString().isEmpty &&
+                    _homeController.tasks[index].time.toString().isEmpty
                 ? SizedBox.shrink()
                 : GestureDetector(
-              onTap: () {},
-              child: Container(
-                width:110.w,
-                decoration: BoxDecoration(
-                  borderRadius:
-                  BorderRadius.circular(40.0),
-                  color: Colors.transparent,
-                  border: Border.all(
-                    color: Colors.grey,
+                    onTap: () {},
+                    child: Container(
+                      width: 110.w,
+                      decoration: BoxDecoration(
+                        borderRadius: BorderRadius.circular(40.0),
+                        color: Colors.transparent,
+                        border: Border.all(
+                          color: Colors.grey,
+                        ),
+                      ),
+                      child: Padding(
+                          padding: const EdgeInsets.all(5.0),
+                          child: Row(
+                            mainAxisAlignment: MainAxisAlignment.center,
+                            children: [
+                              Text(
+                                '${_homeController.tasks[index].date}',
+                                style: TextStyle(fontSize: 10.sp),
+                              ),
+                              SizedBox(
+                                width: 1.0,
+                              ),
+                              _homeController.tasks[index].date
+                                          .toString()
+                                          .isNotEmpty &&
+                                      _homeController.tasks[index].time
+                                          .toString()
+                                          .isNotEmpty
+                                  ? Text(' , ')
+                                  : SizedBox.shrink(),
+                              SizedBox(
+                                width: 1.0,
+                              ),
+                              Text(
+                                '${_homeController.tasks[index].time}',
+                                style: TextStyle(fontSize: 10.sp),
+                              ),
+                            ],
+                          )),
+                    ),
                   ),
-                ),
-                child: Padding(
-                    padding: const EdgeInsets.all(5.0),
-                    child: Row(
-                      mainAxisAlignment:
-                      MainAxisAlignment.center,
-                      children: [
-                        Text(
-                          '${_homeController.tasks[index].date}',
-                          style:
-                          TextStyle(fontSize: 10.sp),
-                        ),
-                        SizedBox(
-                          width: 1.0,
-                        ),
-                        _homeController.tasks[index].date
-                            .toString()
-                            .isNotEmpty &&
-                            _homeController
-                                .tasks[index].time
-                                .toString()
-                                .isNotEmpty
-                            ? Text(' , ')
-                            : SizedBox.shrink(),
-                        SizedBox(
-                          width: 1.0,
-                        ),
-                        Text(
-                          '${_homeController.tasks[index].time}',
-                          style:
-                          TextStyle(fontSize: 10.sp),
-                        ),
-                      ],
-                    )),
-              ),
-            ),
           ),
           SubTasksListBuilder(),
         ],

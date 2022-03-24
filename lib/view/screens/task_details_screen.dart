@@ -3,6 +3,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:gdwl_app/controllers/home_controller.dart';
+import 'package:gdwl_app/shared/theme.dart';
 import '../widgets/text_field/task_details_textfield.dart';
 import 'package:get/get.dart';
 
@@ -67,35 +68,47 @@ class TaskDetailsScreen extends StatelessWidget {
             TextFormField(
               decoration: InputDecoration(
                 border: InputBorder.none,
+                contentPadding: EdgeInsets.zero
               ),
               controller: _controller.taskNameController..text = taskName!,
-              style: TextStyle(fontSize: 22.sp, fontWeight: FontWeight.w500),
+              style: MyTheme.getTextTheme().headline1!.copyWith(color: Colors.black),
             ),
             taskDetails!.isEmpty
                 ? TaskDetailsTextField(
               controller: _controller.taskDetailsController ,
-              hintText: 'Add details',)
+              hintText: 'Add details',
+              prefixIcon: Icons.description_outlined,
+            )
                 : TaskDetailsTextField(
               controller: _controller.taskDetailsController,
-              initialData: taskDetails,),
+              initialData: taskDetails,
+              prefixIcon: Icons.description_outlined,
+            ),
             taskDate!.isEmpty
                 ? TaskDetailsTextField(
               controller: _controller.taskDateController ,
-              hintText: 'Add date',)
+              hintText: 'Add date',
+              prefixIcon: Icons.date_range,
+            )
                 : TaskDetailsTextField(
               controller: _controller.taskDateController,
-              initialData: taskDate,),
+              initialData: taskDate,
+              prefixIcon: Icons.date_range,
+            ),
             taskTime!.isEmpty
                 ? TaskDetailsTextField(
               controller: _controller.taskTimeController ,
-              hintText: 'Add time',)
+              hintText: 'Add time',
+              prefixIcon: Icons.watch_later_outlined,
+            )
                 : TaskDetailsTextField(
               controller: _controller.taskTimeController,
-              initialData: taskTime,),
+              initialData: taskTime,
+              prefixIcon: Icons.watch_later_outlined,
+            ),
 
             TextFormField(
               decoration: InputDecoration(
-                border: InputBorder.none,
                 hintText: 'Add subtask',
                 prefixIcon: Icon(
                   Icons.subdirectory_arrow_right,
@@ -103,7 +116,6 @@ class TaskDetailsScreen extends StatelessWidget {
                 ),
               ),
               controller: _controller.subTaskNameController,
-              style: TextStyle(fontSize: 18.sp),
             ),
           ],
         ),

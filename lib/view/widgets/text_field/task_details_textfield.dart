@@ -7,8 +7,9 @@ class TaskDetailsTextField extends StatelessWidget {
   TextEditingController controller;
   String? hintText;
   String? initialData;
+  IconData? prefixIcon;
 
-  TaskDetailsTextField({ required this.controller, this.hintText = '' , this.initialData = ''});
+  TaskDetailsTextField({ required this.controller, this.hintText = '' , this.initialData = '' ,required this.prefixIcon});
 
   @override
   Widget build(BuildContext context) {
@@ -16,17 +17,15 @@ class TaskDetailsTextField extends StatelessWidget {
     return TextFormField(
       decoration: hintText != ''
           ? InputDecoration(
-        border: InputBorder.none,
         prefixIcon: Icon(
-          Icons.description_outlined,
+          prefixIcon,
           color: Colors.grey,
         ),
         hintText: '$hintText',
       )
           : InputDecoration(
-        border: InputBorder.none,
         prefixIcon: Icon(
-          Icons.description_outlined,
+          prefixIcon,
           color: Colors.grey,
         ),
       ),

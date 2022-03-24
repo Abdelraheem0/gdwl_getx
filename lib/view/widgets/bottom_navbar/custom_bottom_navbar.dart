@@ -3,6 +3,7 @@
 import 'package:flutter/material.dart';
 import 'package:gdwl_app/controllers/home_controller.dart';
 import 'package:gdwl_app/shared/get_navigate_functions.dart';
+import 'package:gdwl_app/view/screens/list_screens/rename_list.dart';
 import '../../screens/list_screens/create_list_screen.dart';
 import 'custom_bottomsheet_tile.dart';
 import 'package:get/get.dart';
@@ -173,7 +174,9 @@ class CustomBottomNavBar extends StatelessWidget {
                               color: Colors.white,
                             ),
                             CustomBottomSheetTile(
-                                onTap: (){},
+                                onTap: (){
+                                  getToScreen(RenameList(listName: _homeController.lists[_homeController.currentTab].name!));
+                                },
                                 title: 'Rename List',
                             ),
                             SizedBox(

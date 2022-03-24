@@ -45,14 +45,6 @@ class FormTextField extends StatelessWidget {
         width: width,
         child: TextFormField(
           decoration: InputDecoration(
-            contentPadding: EdgeInsets.all(10.0),
-            border: OutlineInputBorder(
-              borderRadius: BorderRadius.circular(borderRadius),
-              borderSide: BorderSide(color: borderColor),
-            ),
-
-            fillColor: backgroundColor,
-            filled: true,
             hintText: hintText,
             prefixIcon: prefixIcon != null
                 ?  Icon(prefixIcon , color:iconColor,)

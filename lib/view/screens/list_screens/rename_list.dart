@@ -41,7 +41,6 @@ class RenameList extends StatelessWidget {
                     },
                     child: Text(
                       'Done',
-                      style: TextStyle(color: Colors.white),
                     )),
               ],
             ),

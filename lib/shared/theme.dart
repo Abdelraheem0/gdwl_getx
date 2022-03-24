@@ -29,11 +29,7 @@ class MyTheme {
       colorScheme: _colorSchemeLight,
       appBarTheme: AppBarTheme(
         titleSpacing: 0.0,
-        titleTextStyle: TextStyle(
-          color: _colorSchemeLight.onPrimary,
-          fontWeight: FontWeight.w600,
-          fontSize: 20.0,
-        ),
+        titleTextStyle: getTextTheme().headline3!.copyWith(color: Colors.white),
         elevation: 1.0,
         shadowColor: Colors.transparent,
         color: _colorSchemeLight.onBackground,
@@ -44,6 +40,7 @@ class MyTheme {
       floatingActionButtonTheme: FloatingActionButtonThemeData(
         backgroundColor: _colorSchemeLight.primary,
       ),
+      inputDecorationTheme: _inputDecorationTheme(),
       textButtonTheme: transparentTextButton(),
       iconTheme: IconThemeData(
         color: Colors.white,
@@ -53,89 +50,146 @@ class MyTheme {
       fontFamily: enFont,
     );
   }
-}
 
-TextTheme _getTextTheme() {
-  return TextTheme(
-    headline6: TextStyle(
+  static TextTheme getTextTheme() {
+    return TextTheme(
+      headline6: TextStyle(
+        color: _colorSchemeLight.secondaryVariant,
+        fontSize: 18.sp,
+        fontFamily: enFont,
+        height: 1.2.h,
+        fontWeight: FontWeight.w400,
+      ),
+      headline5: TextStyle(
+          color: _colorSchemeLight.secondaryVariant,
+          fontSize: 18.sp,
+          fontFamily: enFont,
+          height: 1.2.h,
+          fontWeight: FontWeight.w500
+      ),
+      headline4: TextStyle(
+          color: _colorSchemeLight.secondaryVariant,
+          fontSize: 22.sp,
+          fontFamily: enFont,
+          height: 1.2.h,
+          fontWeight: FontWeight.w400
+      ),
+      headline3: TextStyle(
+          color: _colorSchemeLight.secondaryVariant,
+          fontSize: 22.sp,
+          fontFamily: enFont,
+          height: 1.2.h,
+          fontWeight: FontWeight.w500
+      ),
+      headline2: TextStyle(
+          color: _colorSchemeLight.secondaryVariant,
+          fontSize: 24.sp,
+          fontFamily: enFont,
+          height: 1.2.h,
+          fontWeight: FontWeight.w400
+      ),
+      headline1: TextStyle(
+          color: _colorSchemeLight.secondaryVariant,
+          fontSize: 24.sp,
+          fontFamily: enFont,
+          height: 1.2.h,
+          fontWeight: FontWeight.w500
+      ),
+      subtitle1: TextStyle(
+        color: _colorSchemeLight.secondaryVariant,
+        fontSize: 16.sp,
+        height: 1.2.h,
+        fontFamily: enFont,
+      ),
+      bodyText1: TextStyle(
+        color: _colorSchemeLight.secondaryVariant,
+        fontSize: 16.sp,
+        height: 1.2.h,
+        fontFamily: enFont,
+      ),
+      bodyText2: TextStyle(
+        color: _colorSchemeLight.secondaryVariant,
+        fontSize: 16.sp,
+        height: 1.2.h,
+        fontFamily: enFont,
+      ),
+      caption: TextStyle(
+        color: _colorSchemeLight.secondaryVariant,
+        fontSize: 16.sp,
+        height: 1.2.h,
+        fontFamily: enFont,
+      ),
+      overline: TextStyle(
+        color: _colorSchemeLight.secondaryVariant,
+        fontSize: 16.sp,
+        height: 1.2.h,
+        fontFamily: enFont,
+      ),
+      subtitle2: TextStyle(
         color: _colorSchemeLight.secondaryVariant,
         fontSize: 16.sp,
         fontFamily: enFont,
-        height: 1.2.h
-    ),
-    headline5: TextStyle(
-        color: _colorSchemeLight.secondaryVariant,
-        fontSize: 20.sp,
-        fontFamily: enFont,
-        height: 1.2.h),
-    headline4: TextStyle(
-        color: _colorSchemeLight.secondaryVariant,
-        fontSize: 23.sp,
-        fontFamily: enFont,
-        height: 1.2.h),
-    headline3: TextStyle(
-        color: _colorSchemeLight.secondaryVariant,
-        fontSize: 25.sp,
-        fontFamily: enFont,
-        height: 1.2.h),
-    headline2: TextStyle(
-        color: _colorSchemeLight.secondaryVariant,
-        fontSize: 27.sp,
-        fontFamily: enFont,
-        height: 1.2.h),
-    headline1: TextStyle(
-        color: _colorSchemeLight.secondaryVariant,
-        fontSize: 36.sp,
-        fontFamily: enFont,
-        height: 1.2.h),
-    subtitle1: TextStyle(
-      color: _colorSchemeLight.secondaryVariant,
-      fontSize: 16.sp,
-      height: 1.2.h,
-      fontFamily: enFont,
-    ),
-    bodyText1: TextStyle(
-      color: _colorSchemeLight.secondaryVariant,
-      fontSize: 16.sp,
-      height: 1.2.h,
-      fontFamily: enFont,
-    ),
-    bodyText2: TextStyle(
-      color: _colorSchemeLight.secondaryVariant,
-      fontSize: 16.sp,
-      height: 1.2.h,
-      fontFamily: enFont,
-    ),
-    caption: TextStyle(
-      color: _colorSchemeLight.secondaryVariant,
-      fontSize: 16.sp,
-      height: 1.2.h,
-      fontFamily: enFont,
-    ),
-    overline: TextStyle(
-      color: _colorSchemeLight.secondaryVariant,
-      fontSize: 16.sp,
-      height: 1.2.h,
-      fontFamily: enFont,
-    ),
-    subtitle2: TextStyle(
-      color: _colorSchemeLight.secondaryVariant,
-      fontSize: 16.sp,
-      fontFamily: enFont,
-      height: 2.5.h,
-    ),
-    button: TextStyle(
-        color: _colorSchemeLight.background,
-        fontSize: 15.sp,
-        height: 1.2.h,
-        fontWeight: FontWeight.bold
-    ),
-  ).apply(
-    decorationColor: _colorSchemeLight.onSurface,
-    bodyColor: _colorSchemeLight.onSurface,
-    displayColor: _colorSchemeLight.onSurface,
-  );
+        height: 1.5.h,
+      ),
+      button: TextStyle(
+          color: _colorSchemeLight.background,
+          fontSize: 13.sp,
+          height: 1.2.h,
+          fontWeight: FontWeight.bold
+      ),
+    ).apply(
+      decorationColor: _colorSchemeLight.onSurface,
+      bodyColor: _colorSchemeLight.onSurface,
+      displayColor: _colorSchemeLight.onSurface,
+    );
+  }
+
 }
+
+
+
+InputDecorationTheme _inputDecorationTheme() => InputDecorationTheme(
+  contentPadding: EdgeInsets.symmetric(horizontal: 15.w, vertical: 0.h),
+  floatingLabelStyle: MyTheme.getTextTheme().subtitle2,
+  labelStyle: MyTheme.getTextTheme().subtitle2,
+  hintStyle: MyTheme.getTextTheme().subtitle2!.copyWith(color: Colors.grey),
+  errorStyle: MyTheme.getTextTheme().subtitle2!.copyWith(
+      height: 1.2.h, fontSize: 14.sp, color: Colors.red[300]
+  ),
+  filled: true,
+  fillColor: _colorSchemeLight.surface,
+  focusedBorder: OutlineInputBorder(
+    borderSide: BorderSide(color: _colorSchemeLight.primary),
+    borderRadius: BorderRadius.all(Radius.circular(circleRadius)),
+    gapPadding: 0,
+  ),
+  border: OutlineInputBorder(
+    borderSide: BorderSide(
+        color: Colors.transparent
+    ),
+    borderRadius: BorderRadius.all(Radius.circular(circleRadius)),
+  ),
+  isDense: false,
+  errorBorder: OutlineInputBorder(
+    borderSide: BorderSide(color: _colorSchemeLight.error),
+    borderRadius: BorderRadius.all(Radius.circular(circleRadius)),
+    gapPadding: 0,
+  ),
+  enabledBorder: OutlineInputBorder(
+    borderSide: BorderSide(color: Colors.transparent
+      // color: _colorSchemeLight
+      //     .onBackground
+    ),
+    borderRadius: BorderRadius.all(Radius.circular(circleRadius)),
+    gapPadding: 0,
+  ),
+  focusedErrorBorder: OutlineInputBorder(
+    borderSide: BorderSide(color: _colorSchemeLight.error),
+    borderRadius: BorderRadius.all(Radius.circular(circleRadius)),
+    gapPadding: 0,
+  ),
+);
+
 
 TextButtonThemeData transparentTextButton() {
   final double _maxButtonHeight = 50.0.h;
@@ -147,10 +201,7 @@ TextButtonThemeData transparentTextButton() {
     primary: _colorSchemeLight.onPrimary,
     padding: EdgeInsets.symmetric(horizontal: 20.w, vertical: 0.h),
     minimumSize: Size(0, _maxButtonHeight),
-    textStyle: TextStyle(
-      fontFamily: enFont,
-      fontSize: 16.sp,
-    ),
+    textStyle: MyTheme.getTextTheme().button,
     maximumSize: Size(_maxButtonWidth, _maxButtonHeight),
     elevation: 0,
   ));

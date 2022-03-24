@@ -30,7 +30,6 @@ class HomeScreen extends StatelessWidget {
               },
               icon: Icon(
                 Icons.add,
-                color: Colors.white,
               )),
         ],
       ),
@@ -42,7 +41,7 @@ class HomeScreen extends StatelessWidget {
           onPressed: () {
             Get.bottomSheet(
                 Container(
-                  color: Colors.blue,
+              color: Colors.blue,
               height: 250.h,
               child: Padding(
                 padding: const EdgeInsets.all(18.0),
@@ -70,8 +69,7 @@ class HomeScreen extends StatelessWidget {
                               mainAxisAlignment: MainAxisAlignment.spaceAround,
                               children: [
                                 FormTextField(
-                                  width:
-                                      155.w,
+                                  width: 155.w,
                                   hintText: 'Pick date',
                                   controller:
                                       _homeController.taskDateController,
@@ -84,8 +82,7 @@ class HomeScreen extends StatelessWidget {
                                   width: 5.0,
                                 ),
                                 FormTextField(
-                                  width:
-                                      155.w,
+                                  width: 155.w,
                                   hintText: 'Pick time',
                                   controller:
                                       _homeController.taskTimeController,
@@ -108,6 +105,7 @@ class HomeScreen extends StatelessWidget {
                           },
                           child: Text(
                             'Add',
+                            style: TextStyle(fontSize: 18.sp , fontWeight: FontWeight.w500),
                           )),
                     ],
                   ),
@@ -140,8 +138,8 @@ class HomeScreen extends StatelessWidget {
                                 curve: Curves.fastOutSlowIn);
                           },
                           child: Padding(
-                            padding: const EdgeInsets.symmetric(
-                                horizontal: 12.0),
+                            padding:
+                                const EdgeInsets.symmetric(horizontal: 12.0),
                             child: Column(
                               children: [
                                 Text(
@@ -180,23 +178,23 @@ class HomeScreen extends StatelessWidget {
                   return SingleChildScrollView(
                     child: Padding(
                       padding: const EdgeInsets.all(8.0),
-                      child: homeController.tasks.length < 5
+                      child: homeController.tasks.length < 5 && homeController.subTasks.length < 3
                           ? Column(
-                        children: [
-                          TasksListBuilder(),
-                          homeController.doneTasks.isNotEmpty
-                              ? DoneTaskCard()
-                              : SizedBox.shrink(),
-                        ],
-                      )
+                              children: [
+                                TasksListBuilder(),
+                                homeController.doneTasks.isNotEmpty
+                                    ? DoneTaskCard()
+                                    : SizedBox.shrink(),
+                              ],
+                            )
                           : Column(
-                        children: [
-                          homeController.doneTasks.isNotEmpty
-                              ? DoneTaskCard()
-                              : SizedBox.shrink() ,
-                          TasksListBuilder(),
-                        ],
-                      ),
+                              children: [
+                                homeController.doneTasks.isNotEmpty
+                                    ? DoneTaskCard()
+                                    : SizedBox.shrink(),
+                                TasksListBuilder(),
+                              ],
+                            ),
                     ),
                   );
                 },
