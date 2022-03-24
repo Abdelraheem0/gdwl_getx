@@ -1,7 +1,9 @@
-// ignore_for_file: use_key_in_widget_constructors, prefer_const_constructors
+// ignore_for_file: use_key_in_widget_constructors, prefer_const_constructors, must_be_immutable
 
 import 'package:flutter/material.dart';
+import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:gdwl_app/controllers/home_controller.dart';
+import '../widgets/text_field/task_details_textfield.dart';
 import 'package:get/get.dart';
 
 class TaskDetailsScreen extends StatelessWidget {
@@ -33,26 +35,28 @@ class TaskDetailsScreen extends StatelessWidget {
             if(_controller.subTaskNameController.text.isNotEmpty)
               {
                 _controller.addSubTask();
+                _controller.resetSubTaskControllers();
+                _controller.resetTaskControllers();
                 Get.back();
               }else{
+              _controller.resetTaskControllers();
               Get.back();
             }
           },
           icon: Icon(Icons.arrow_back),
           color: Colors.blue,
-          iconSize: 30.0,
+          iconSize: 25.0.w,
         ),
         backgroundColor: Colors.white,
-        elevation: 0.0,
         actions: [
           IconButton(
               onPressed: () {
-
+                // Delete Task
               },
               icon: Icon(
                 Icons.delete_forever_outlined,
                 color: Colors.redAccent,
-                size: 35.0,
+                size: 25.0.w,
               )),
         ],
       ),
@@ -65,93 +69,29 @@ class TaskDetailsScreen extends StatelessWidget {
                 border: InputBorder.none,
               ),
               controller: _controller.taskNameController..text = taskName!,
-              style: TextStyle(fontSize: 24.0, fontWeight: FontWeight.w500),
+              style: TextStyle(fontSize: 22.sp, fontWeight: FontWeight.w500),
             ),
             taskDetails!.isEmpty
-                ? TextFormField(
-              decoration: InputDecoration(
-                border: InputBorder.none,
-                prefixIcon: Icon(
-                  Icons.description_outlined,
-                  color: Colors.grey,
-                ),
-                hintText: 'Add details',
-              ),
-              style: TextStyle(fontSize: 18.0),
+                ? TaskDetailsTextField(
+              controller: _controller.taskDetailsController ,
+              hintText: 'Add details',)
+                : TaskDetailsTextField(
               controller: _controller.taskDetailsController,
-            )
-                : TextFormField(
-              decoration: InputDecoration(
-                border: InputBorder.none,
-                prefixIcon: Icon(
-                  Icons.description_outlined,
-                  color: Colors.grey,
-                ),
-              ),
-              controller: _controller.taskDetailsController
-                ..text = taskDetails!,
-              style: TextStyle(fontSize: 20.0),
-            ),
+              initialData: taskDetails,),
             taskDate!.isEmpty
-                ? TextFormField(
-              onTap: () {
-                _controller.pickTaskDate();
-              },
-              decoration: InputDecoration(
-                border: InputBorder.none,
-                prefixIcon: Icon(
-                  Icons.date_range,
-                  color: Colors.grey,
-                ),
-                hintText: 'Add date',
-              ),
+                ? TaskDetailsTextField(
+              controller: _controller.taskDateController ,
+              hintText: 'Add date',)
+                : TaskDetailsTextField(
               controller: _controller.taskDateController,
-              style: TextStyle(fontSize: 18.0),
-            )
-                : TextFormField(
-              onTap: () {
-                _controller.pickTaskDate();
-              },
-              decoration: InputDecoration(
-                border: InputBorder.none,
-                prefixIcon: Icon(
-                  Icons.date_range,
-                  color: Colors.grey,
-                ),
-              ),
-              controller: _controller.taskDateController..text = taskDate!,
-              style: TextStyle(fontSize: 20.0),
-            ),
+              initialData: taskDate,),
             taskTime!.isEmpty
-                ? TextFormField(
-              onTap: () {
-                _controller.pickTaskTime();
-              },
-              decoration: InputDecoration(
-                border: InputBorder.none,
-                prefixIcon: Icon(
-                  Icons.watch_later_outlined,
-                  color: Colors.grey,
-                ),
-                hintText: 'Add time',
-              ),
+                ? TaskDetailsTextField(
+              controller: _controller.taskTimeController ,
+              hintText: 'Add time',)
+                : TaskDetailsTextField(
               controller: _controller.taskTimeController,
-              style: TextStyle(fontSize: 18.0),
-            )
-                : TextFormField(
-              onTap: () {
-                _controller.pickTaskTime();
-              },
-              decoration: InputDecoration(
-                border: InputBorder.none,
-                prefixIcon: Icon(
-                  Icons.watch_later_outlined,
-                  color: Colors.grey,
-                ),
-              ),
-              controller: _controller.taskTimeController..text = taskTime!,
-              style: TextStyle(fontSize: 20.0),
-            ),
+              initialData: taskTime,),
 
             TextFormField(
               decoration: InputDecoration(
@@ -163,7 +103,7 @@ class TaskDetailsScreen extends StatelessWidget {
                 ),
               ),
               controller: _controller.subTaskNameController,
-              style: TextStyle(fontSize: 18.0),
+              style: TextStyle(fontSize: 18.sp),
             ),
           ],
         ),

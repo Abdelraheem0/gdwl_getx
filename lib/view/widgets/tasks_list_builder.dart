@@ -1,14 +1,14 @@
-// ignore_for_file: prefer_const_constructors, prefer_const_literals_to_create_immutables
+// ignore_for_file: prefer_const_constructors, prefer_const_literals_to_create_immutables, unnecessary_import, use_key_in_widget_constructors
 
-import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:gdwl_app/controllers/home_controller.dart';
 import 'package:gdwl_app/shared/get_navigate_functions.dart';
-import 'package:gdwl_app/view/screens/subtask_screen.dart';
+import 'subtasks_list_builder.dart';
 import 'package:gdwl_app/view/screens/task_details_screen.dart';
 import 'package:get/get.dart';
 
-class TaskScreen extends StatelessWidget {
+class TasksListBuilder extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
 
@@ -16,6 +16,7 @@ class TaskScreen extends StatelessWidget {
 
     return ListView.builder(
       scrollDirection: Axis.vertical,
+      physics: const NeverScrollableScrollPhysics(),
       shrinkWrap: true,
       itemBuilder: (context, index) => Column(
         children: [
@@ -50,8 +51,7 @@ class TaskScreen extends StatelessWidget {
                 : GestureDetector(
               onTap: () {},
               child: Container(
-                width: MediaQuery.of(context).size.width *
-                    0.34,
+                width:110.w,
                 decoration: BoxDecoration(
                   borderRadius:
                   BorderRadius.circular(40.0),
@@ -69,7 +69,7 @@ class TaskScreen extends StatelessWidget {
                         Text(
                           '${_homeController.tasks[index].date}',
                           style:
-                          TextStyle(fontSize: 10.0),
+                          TextStyle(fontSize: 10.sp),
                         ),
                         SizedBox(
                           width: 1.0,
@@ -89,14 +89,14 @@ class TaskScreen extends StatelessWidget {
                         Text(
                           '${_homeController.tasks[index].time}',
                           style:
-                          TextStyle(fontSize: 10.0),
+                          TextStyle(fontSize: 10.sp),
                         ),
                       ],
                     )),
               ),
             ),
           ),
-          SubTaskScreen(),
+          SubTasksListBuilder(),
         ],
       ),
       itemCount: _homeController.tasks.length,

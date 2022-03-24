@@ -1,5 +1,4 @@
 import 'package:flutter/material.dart';
-import 'package:flutter/services.dart';
 import 'package:gdwl_app/controllers/splash_controller.dart';
 import 'package:gdwl_app/shared/global_config.dart';
 import 'package:gdwl_app/shared/theme.dart';

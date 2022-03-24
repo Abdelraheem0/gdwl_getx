@@ -1,6 +1,7 @@
 // ignore_for_file: prefer_const_constructors, use_key_in_widget_constructors, must_be_immutable
 
 import 'package:flutter/material.dart';
+import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:gdwl_app/controllers/home_controller.dart';
 import 'package:gdwl_app/shared/get_navigate_functions.dart';
 import 'package:gdwl_app/view/screens/home_screen.dart';
@@ -31,7 +32,7 @@ class CreateList extends StatelessWidget {
                     },
                     child: Text(
                       'Done',
-                      style: TextStyle(color: Colors.white),
+                      style: TextStyle(fontSize: 12.sp),
                     )),
             ],
           ),

@@ -20,6 +20,9 @@ class HomeController extends GetxController {
   var subTaskDateController;
   var subTaskTimeController;
 
+  PageController pageController = PageController();
+
+
 
   int  currentTab = 0;
 
@@ -151,6 +154,10 @@ class HomeController extends GetxController {
     subTaskDetailsController.text = '';
     subTaskTimeController.text = '';
     subTaskDateController.text = '';
+  }
+
+  void resetListController(){
+    listNameController.text = '';
   }
 
   void addTask() {

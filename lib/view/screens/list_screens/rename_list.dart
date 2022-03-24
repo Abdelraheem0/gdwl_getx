@@ -5,7 +5,7 @@ import 'package:gdwl_app/controllers/home_controller.dart';
 import 'package:gdwl_app/shared/get_navigate_functions.dart';
 import 'package:get/get.dart';
 
-import 'home_screen.dart';
+import '../home_screen.dart';
 
 class RenameList extends StatelessWidget {
   String listName;
@@ -22,6 +22,7 @@ class RenameList extends StatelessWidget {
               title: Text('Rename List'),
               leading: IconButton(
                 onPressed: (){
+                  homeController.resetListController();
                   homeController.currentTab = 0;
                   getOffAllScreen(HomeScreen());
                   },
@@ -34,6 +35,7 @@ class RenameList extends StatelessWidget {
                       {
                         return ;
                       }else{
+                        homeController.resetListController();
                         getOffAllScreen(HomeScreen());
                       }
                     },

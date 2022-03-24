@@ -1,10 +1,11 @@
 // ignore_for_file: use_key_in_widget_constructors, sized_box_for_whitespace, prefer_const_constructors
 
 import 'package:flutter/material.dart';
+import 'package:gdwl_app/shared/size.dart';
 
 
 // ignore: must_be_immutable
-class DefaultTextField extends StatelessWidget {
+class FormTextField extends StatelessWidget {
 
 
   String hintText ;
@@ -20,11 +21,11 @@ class DefaultTextField extends StatelessWidget {
   IconData? suffixIcon;
   Color borderColor;
   Color iconColor;
-  DefaultTextField({
+  FormTextField({
     required this.hintText,
     this.width = double.infinity,
     this.inputType = TextInputType.text,
-    this.borderRadius = 5,
+    this.borderRadius = formTextFieldBorderRadius,
     this.backgroundColor = Colors.white,
     this.validator,
     this.onSaved,

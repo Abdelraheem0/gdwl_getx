@@ -1,4 +1,4 @@
 // assets
 const String imageAssets = 'assets/images/';
 const String iconAssets = 'assets/icons/';
-const String arFont = '';
+const String enFont = 'IBM';
