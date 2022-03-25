@@ -16,7 +16,7 @@ const _colorSchemeLight = ColorScheme(
     error: Colors.red,
     onPrimary: Colors.white,
     onSecondary: Colors.grey,
-    onSurface: Colors.blue,
+    onSurface: Colors.white,
     onBackground: Colors.blue,
     onError: Colors.blue,
     brightness: Brightness.light);
@@ -29,7 +29,7 @@ class MyTheme {
       colorScheme: _colorSchemeLight,
       appBarTheme: AppBarTheme(
         titleSpacing: 0.0,
-        titleTextStyle: getTextTheme().headline3!.copyWith(color: Colors.white),
+        titleTextStyle: getTextTheme().headline2!.copyWith(color: Colors.white , fontWeight: FontWeight.w500),
         elevation: 1.0,
         shadowColor: Colors.transparent,
         color: _colorSchemeLight.onBackground,
@@ -55,49 +55,43 @@ class MyTheme {
     return TextTheme(
       headline6: TextStyle(
         color: _colorSchemeLight.secondaryVariant,
-        fontSize: 18.sp,
+        fontSize: 14.sp,
         fontFamily: enFont,
         height: 1.2.h,
-        fontWeight: FontWeight.w400,
       ),
       headline5: TextStyle(
+          color: _colorSchemeLight.secondaryVariant,
+          fontSize: 16.sp,
+          fontFamily: enFont,
+          height: 1.2.h,
+      ),
+      headline4: TextStyle(
           color: _colorSchemeLight.secondaryVariant,
           fontSize: 18.sp,
           fontFamily: enFont,
           height: 1.2.h,
-          fontWeight: FontWeight.w500
-      ),
-      headline4: TextStyle(
-          color: _colorSchemeLight.secondaryVariant,
-          fontSize: 22.sp,
-          fontFamily: enFont,
-          height: 1.2.h,
-          fontWeight: FontWeight.w400
       ),
       headline3: TextStyle(
           color: _colorSchemeLight.secondaryVariant,
-          fontSize: 22.sp,
+          fontSize: 20.sp,
           fontFamily: enFont,
           height: 1.2.h,
-          fontWeight: FontWeight.w500
       ),
       headline2: TextStyle(
           color: _colorSchemeLight.secondaryVariant,
-          fontSize: 24.sp,
+          fontSize: 22.sp,
           fontFamily: enFont,
           height: 1.2.h,
-          fontWeight: FontWeight.w400
       ),
       headline1: TextStyle(
           color: _colorSchemeLight.secondaryVariant,
           fontSize: 24.sp,
           fontFamily: enFont,
           height: 1.2.h,
-          fontWeight: FontWeight.w500
       ),
       subtitle1: TextStyle(
         color: _colorSchemeLight.secondaryVariant,
-        fontSize: 16.sp,
+        fontSize: 10.sp,
         height: 1.2.h,
         fontFamily: enFont,
       ),

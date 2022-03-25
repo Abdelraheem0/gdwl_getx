@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:gdwl_app/controllers/splash_controller.dart';
 import 'package:gdwl_app/shared/global_config.dart';
 import 'package:gdwl_app/shared/theme.dart';
@@ -26,16 +27,16 @@ class SplashScreen extends StatelessWidget {
                 mainAxisSize: MainAxisSize.min,
                 children: [
                   SizedBox(
-                    width: MediaQuery.of(context).size.width*0.7,
+                    width: 280.w,
                     child: Image.asset(
                       imageAssets + 'logo.png',
                       fit: BoxFit.contain,
                     ),
 
                   ),
-                  SizedBox(height: MediaQuery.of(context).size.height*0.2,),
+                  SizedBox(height: 60.w),
                   SizedBox(
-                    width: MediaQuery.of(context).size.width*0.5,
+                    width: 160.w,
                     height: 2,
                     child: const LinearProgressIndicator(
                       backgroundColor: Colors.blue,

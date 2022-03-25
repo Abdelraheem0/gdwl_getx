@@ -4,6 +4,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:gdwl_app/controllers/home_controller.dart';
 import 'package:gdwl_app/shared/get_navigate_functions.dart';
+import 'package:gdwl_app/shared/theme.dart';
 import 'package:gdwl_app/shared/validation.dart';
 import 'list_screens/create_list_screen.dart';
 import '../widgets/done_taks_card.dart';
@@ -105,7 +106,7 @@ class HomeScreen extends StatelessWidget {
                           },
                           child: Text(
                             'Add',
-                            style: TextStyle(fontSize: 18.sp , fontWeight: FontWeight.w500),
+                            style: MyTheme.getTextTheme().headline5!.copyWith(fontWeight: FontWeight.w500),
                           )),
                     ],
                   ),
@@ -144,10 +145,7 @@ class HomeScreen extends StatelessWidget {
                               children: [
                                 Text(
                                   '${controller.lists[index].name}',
-                                  style: TextStyle(
-                                      color: Colors.white,
-                                      fontWeight: FontWeight.w500,
-                                      fontSize: 14.sp),
+                                  style: MyTheme.getTextTheme().headline6!.copyWith(fontWeight: FontWeight.w500)
                                 ),
                                 controller.currentTab == index
                                     ? Container(

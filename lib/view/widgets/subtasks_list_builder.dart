@@ -4,6 +4,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:gdwl_app/controllers/home_controller.dart';
 import 'package:gdwl_app/shared/get_navigate_functions.dart';
+import 'package:gdwl_app/shared/theme.dart';
 import 'package:gdwl_app/view/screens/subtask_details_screen.dart';
 import 'package:get/get.dart';
 
@@ -55,7 +56,7 @@ class SubTasksListBuilder extends StatelessWidget {
                             children: [
                               Text(
                                 '${_controller.subTasks[index].date}',
-                                style: TextStyle(fontSize: 10.sp),
+                                  style: MyTheme.getTextTheme().subtitle1!.copyWith(color: Colors.black),
                               ),
                               SizedBox(
                                 width: 1.0,
@@ -73,7 +74,7 @@ class SubTasksListBuilder extends StatelessWidget {
                               ),
                               Text(
                                 '${_controller.subTasks[index].time}',
-                                style: TextStyle(fontSize: 10.sp),
+                                style: MyTheme.getTextTheme().subtitle1!.copyWith(color: Colors.black),
                               ),
                             ],
                           )),
